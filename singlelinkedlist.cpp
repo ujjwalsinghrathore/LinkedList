@@ -51,6 +51,48 @@ void reverse(){
          }
     head = prev;
 }
+//deleting at begin
+void delete_begin(){
+    struct Node *ptr;
+    ptr = head;
+    head = ptr->next;
+    
+    cout<<"Deleted node from begin"<<endl;
+    free(ptr);
+}
+//deleting at end
+void delete_end(){
+    struct Node *ptr, *preptr;
+    preptr = head;
+    ptr = preptr->next;
+    int z = 0;
+    while(ptr->next != NULL){
+        preptr = preptr->next;
+        ptr = ptr->next;
+    }
+    preptr->next = NULL;
+    cout<<"Deleted from end "<<endl;
+    free(ptr);
+    
+}
+//deleting any node from between
+void delete_any(){
+    struct Node *ptr, *preptr;
+    int x;
+    cout<<"Enter which node to be deleted i.e. 1";
+    cin>>x;
+    head = preptr;
+    ptr = preptr->next;
+    int z = 1;
+    while(z<x-1){
+        ptr = ptr->next;
+        preptr = preptr->next;
+        z++;
+    }
+    preptr->next = ptr->next;
+    free(ptr);
+    
+}
 //displaying a linked list
 void display(){
     struct Node *ptr;
